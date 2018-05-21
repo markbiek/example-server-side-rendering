@@ -1,20 +1,18 @@
-(function ($) {
-    $(document).ready(() => {
-        console.log('ready!');
-    });
-})(jQuery);
+import React from 'react';
+import {render} from 'react-dom';
 
-function* counter() {
-    let idx = 0;
+import Hello from './components/Hello.js';
 
-    while (true) {
-        yield idx++;
+class App extends React.Component {
+    render () {
+	return (
+	    <Hello />
+	);
     }
 }
 
-let gen = counter();
+let app = document.getElementById('app');
 
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
+if (app) {
+    render(<App/>, app);
+}
